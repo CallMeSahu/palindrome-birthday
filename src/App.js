@@ -3,11 +3,17 @@ import "./styles.css";
 export default function App() {
   return (
     <div className="App">
-      <div className="about-area">
-        <h1>Palindrome Birthday</h1>
-        <h3>Find if your birthday is a palindrome or not.</h3>
-      </div>
-      <div className="working-area"></div>
+      <section className="about-section">
+        <h2>Palindrome Birthday</h2>
+        <p>
+          A palindrome is a word, number, phrase, or other sequence of
+          characters which reads the same backward as forward.
+        </p>
+        <button>
+          <a href="#workingSection" /> Find Out
+        </button>
+      </section>
+      <section className="working-section" id="workingSection"></section>
     </div>
   );
 }
