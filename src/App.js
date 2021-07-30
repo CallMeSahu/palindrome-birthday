@@ -1,7 +1,24 @@
 import "./styles.css";
-import React from "react";
+import React, { useState } from "react";
+import loading from "/src/loading.gif";
 
 export default function App() {
+  const [output, setOutput] = useState("");
+
+  function userInputHandler(event) {
+    var date = event.target.value;
+    setOutput(
+      <img
+        style={{ width: "200px", margin: "1rem" }}
+        src={loading}
+        alt=""
+      ></img>
+    );
+    setTimeout(() => {
+      setOutput(date);
+    }, 7000);
+  }
+
   return (
     <div className="App">
       <section className="about-section">
@@ -18,7 +35,8 @@ export default function App() {
       </section>
       <section className="working-section">
         <h3>Enter Your Birthday</h3>
-        <input type="date"></input>
+        <input type="date" onChange={userInputHandler}></input>
+        <div>{output}</div>
       </section>
     </div>
   );
