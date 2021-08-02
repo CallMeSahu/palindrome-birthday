@@ -83,16 +83,16 @@ export default function App() {
             dd2 = daysInMonth[mm2 - 1];
           }
         }
-        var yyString = yy2.toString();
-        var mmString = mm2.toString();
-        var ddString = dd2.toString();
-        if (ddString.length === 1) {
-          ddString = "0" + ddString;
+        var yy2String = yy2.toString();
+        var mm2String = mm2.toString();
+        var dd2String = dd2.toString();
+        if (dd2String.length === 1) {
+          dd2String = "0" + dd2String;
         }
-        if (mmString.length === 1) {
-          mmString = "0" + mmString;
+        if (mm2String.length === 1) {
+          mm2String = "0" + mm2String;
         }
-        var prevCorrectCombi = checkCombi(ddString, mmString, yyString);
+        var prevCorrectCombi = checkCombi(dd2String, mm2String, yy2String);
         if (prevCorrectCombi) {
           return [`${prevCorrectCombi}`, i];
         }
