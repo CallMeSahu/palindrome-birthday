@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import loading from "/src/loading.gif";
 
 const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var date = 0;
 
 export default function App() {
   const [output, setOutput] = useState("");
@@ -122,7 +123,6 @@ export default function App() {
   }
 
   function userInputHandler(event) {
-    var date = event.target.value;
     setOutput(<img style={{ width: "250px" }} src={loading} alt=""></img>);
     setTimeout(() => {
       findResult(date);
@@ -149,15 +149,18 @@ export default function App() {
       </section>
       <section className="working-section">
         <h3>Enter Your Birthday</h3>
-        <input type="date" onChange={userInputHandler}></input>
-        <div
-          style={{
-            padding: "3rem",
-            fontWeight: "bold",
-            width: "500px",
-            margin: "auto"
+        <input
+          type="date"
+          onChange={(event) => {
+            date = event.target.value;
           }}
-        >
+        ></input>
+        <div>
+          <button className="button" onClick={userInputHandler}>
+            Check
+          </button>
+        </div>
+        <div className="output-area" style={{}}>
           {output}
         </div>
       </section>
